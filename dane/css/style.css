@@ -1,0 +1,36 @@
+/* ====================== Master ====================== */
+
+*{
+}
+
+h1{
+}
+
+li{
+  list-style-type: none;
+}
+
+span{
+  
+}
+
+/* ====================== header ====================== */
+/* ====================== Body ====================== */
+
+.deck{
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: grey;
+  padding: 20px;
+  margin: 0;
+}
+
+.card{
+  margin-top: 30px;
+  width: 200px;
+  height: 200px;
+}
+
+/* ====================== Footer ====================== */
