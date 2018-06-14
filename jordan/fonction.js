@@ -52,5 +52,5 @@ function randomImg(){
    tabImg[18]  = "../img/ruby.png";
    tabImg[19]  = "../img/ruby.png";
 
-   document.getElementById('image').src += tabImg[Math.round(Math.random()*21)];
+   card.src += tabImg[Math.round(Math.random()*21)];
 }
