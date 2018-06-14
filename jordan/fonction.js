@@ -21,7 +21,7 @@ function startTimer(){
         }
     },10);
 }
-
+//http://sciences-du-numerique.fr/projets-javascript/code-source-du-jeu-de-memory/60
 //memory
 var motifsCartes=[1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10];
 var etatsCartes=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
