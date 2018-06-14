@@ -10,3 +10,14 @@ margin-top: 400px
 span{
   border: 2px solid black;
 }
+.random{
+  text-align: center;
+  font-size: 3rem;
+}
+ul{
+  display: flex;
+  flex-wrap: wrap;
+}
+li{
+  list-style: none;
+}
