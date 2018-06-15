@@ -1,96 +1,24 @@
-*{
-  margin: 0;
-  padding: 0;
-}
-
-.timer {
-  cursor:pointer;
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-span{
-  border: 2px solid black;
-}
-.random{
-  text-align: center;
-  font-size: 3rem;
-}
-ul{
-  display: flex;
-  flex-wrap: wrap;
-}
-li{
-  list-style: none;
-}
-
-.deck {
-	width: 85%;
-	background: #716F71;
-	padding: 1rem;
-	border-radius: 4px;
-	box-shadow: 8px 9px 26px 0 rgba(46, 61, 73, 0.5);
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
-	align-items: center;
-
-}
-
-.deck .card {
-	margin: 0.2rem 0.2rem;
-	background: #141214;;
-	font-size: 0;
-	color: #ffffff;
-	border-radius: 5px;
-	cursor: pointer;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
-}
-
-.deck .card.open {
-	transform: rotateY(0);
-	background: #02b3e4;
-	cursor: default;
-	animation-name: flipInY;
-	-webkit-backface-visibility: visible !important;
-	backface-visibility: visible !important;
-	animation-duration: .75s;
-}
-
-.deck .card.show {
-	font-size: 33px;
-}
-
-.deck .card.match {
-	cursor: default;
-	background: #E5F720;
-	font-size: 33px;
-	animation-name: rubberBand;
-	-webkit-backface-visibility: visible !important;
-	backface-visibility: visible !important;
-	animation-duration: .75s;
-}
-
-.deck .card.unmatched {
-	animation-name: pulse;
-	-webkit-backface-visibility: visible !important;
-	backface-visibility: visible !important;
-	animation-duration: .75s;
-	background: #e2043b;
-}
-
-.deck .card.disabled {
-	pointer-events: none;
-	opacity: 0.9;
-}
-
-	img{
-		cursor:pointer;
-	}
-
-
+/*classe js*/
 .cacher{
   display: none;
+}
+/*formulaire*/
+@import url('https://fonts.googleapis.com/css?family=Lato|Medula+One');
+
+
+form{
+	justify-content: center;
+}
+.contener{
+	text-align: center;
+}
+
+input.line{
+	background-color: #1e88e5;
+	border: none;
+	border-bottom: 2px solid #ffb300;
+}
+
+input{
+	background-color: #ffb300;
 }

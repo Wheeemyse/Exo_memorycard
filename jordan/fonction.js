@@ -53,7 +53,7 @@ function majAffichage(noCarte){
 	switch(etatsCartes[noCarte]){
     //état 0 : carte face cachée, on affichage l'image de dos de carte
 		case 0:
-			imgCartes[noCarte].src="../img/dos.jpg";
+			imgCartes[noCarte].src="../img/dos.png";
 			break;
       //carte retournée, on affiche l'image du motif correspondant
       //au numero de carte.
@@ -69,7 +69,7 @@ function majAffichage(noCarte){
 }
 //fonction permet de stop le chrono.
 function stop(){
-
+//le clearInterval
   clearInterval(interval);
   finalTime = timer.innerHTML;
   time.classList.toggle('cacher');//cacher le chrono
@@ -143,21 +143,21 @@ function controleJeu(noCarte){
 //formulaire
 
 function validationForm() {
-    var x = document.forms["formcard"]["nom"].value;
-    var y = document.forms["formcard"]["prenom"].value;
-    if (x == "" && y =="") {
+    var x = document.forms["formcard"]["nom"].value;//recupere les données entrées
+    var y = document.forms["formcard"]["prenom"].value;//recupere les données entrées
+    if (x == "" && y =="") {//si le nom et prenom sont vide
         alert("Veuillez indiquer votre nom et votre prénom");
         return false;
       }
-    else if (x == "") {
+    else if (x == "") {//si le nom est vide
       alert("Veuillez indiquer votre nom")
       return false;
       }
-    else if (y =="") {
+    else if (y =="") {//si le prenom est vide
       alert("Veuillez indiquer votre prénom")
       return false;
     }
-    else {
+    else {//sinon on relance le jeu
       rejouer();
     }
 }
