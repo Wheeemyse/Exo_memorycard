@@ -5,27 +5,23 @@
     <link rel="stylesheet" href="style.css">
     <title></title>
   </head>
-  <body ><div class="contener">
-    <form class="cacher" action="index.html" method="post" id="formu">
-      <div class="">
-        <br><br>
-        <label for="nom">Nom:</label><br><br><br>
-        <label for="prenom">Prénom:</label><br><br>
-        <label for="email">Email:</label><br><br>
-        <label for="text">Temps: <div id=totalTime></div> </label>
-      </div>
-      <div class="">
-        <label for="sexe1">Homme:</label>
-        <input type="radio" name="sexe" id="sexe1" value="" >
-        <label for="sexe1">Femme:</label>
-        <input type="radio" name="sexe" id="sexe2" value=""><br><br>
-        <input type="text" name="nom" id="nom" value=""><br><br>
-        <input type="text" name="prenom" id="prenom" value=""><br><br>
-        <input type="email" name="email" id="email" value=""><br><br>
-        <input type="number" name="" value="" id="temps" disabled>
-      </div>
+  <body >
+    <div class="contener">
+      <form class="cacher" id="formu" name="formcard"  method="post" onsubmit="return validationForm()">
+        <div class="test">
+          <label for="sexe1">Homme:</label>
+          <input type="radio" name="sexe" id="sexe1" value="" >
+          <label for="sexe1">Femme:</label>
+          <input type="radio" name="sexe" id="sexe2" value=""><br><br>
+          <input type="text" class="line" name="nom" id="nom" value=""placeholder="Nom" ><br><br>
+          <input type="text" class="line" name="prenom" id="prenom" value="" placeholder="Prénom" ><br><br>
+          <input type="email" class="line" name="email" id="email" value="" placeholder="Email" required><br><br>
+          <div id=totalTime></div><br><br><br><br>
+          <input type="submit" name="" value="Envoyer" class="submit" >
+        </div>
+      </form>
     </div>
-  </form>
+
     <form class="cacher" action="index.html" method="post" id="formu">
       <input type="text" name="" value="texte">
     </form>

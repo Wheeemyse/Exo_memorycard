@@ -40,6 +40,8 @@ var nbPairesTrouvees=0;
 var imgCartes=document.getElementById("cardDeck").getElementsByTagName("img");
 //on parcourt le tableau d'objet des éléments img et on ajoute la fonction controleJeu
 //en cliquant sur la chaque carte.
+var form = document.getElementById("formu");
+var chrono = document.getElementById("time");
 for(var i=0;i<imgCartes.length;i++){
 	imgCartes[i].noCarte=i; //Ajout de la propriété noCarte à l'objet img
 	imgCartes[i].onclick=function(){
@@ -66,16 +68,20 @@ function majAffichage(noCarte){
 	}
 }
 //fonction permet de stop le chrono.
-function rejouer(){
-  var form = document.getElementById("formu");
-  var chrono = document.getElementById("time");
+function stop(){
+
   clearInterval(interval);
   finalTime = timer.innerHTML;
-  time.classList.toggle('cacher');
+  time.classList.toggle('cacher');//cacher le chrono
   visible.classList.toggle('cacher');//cache le jeu
   formu.classList.toggle('cacher');//montre le formulaire
   document.getElementById("totalTime").innerHTML = finalTime;
-//	location.reload();
+}
+function rejouer() {
+  	location.reload();
+    time.classList.toggle('cacher');//cacher le chrono
+    visible.classList.toggle('cacher');//cache le jeu
+    formu.classList.toggle('cacher');//montre le formulaire
 }
 // fonction qui mélange le jeu elle se lance sur la bouton start
 function initialiseJeu(){
@@ -128,9 +134,30 @@ function controleJeu(noCarte){
     //si le nombre de paires = 10 on lance la fonction rejouer
     //qui fait pop l'alerte
     if(nbPairesTrouvees==10){
-      rejouer();
+      stop();
     }
   },500);
 }
 }
+}
+//formulaire
+
+function validationForm() {
+    var x = document.forms["formcard"]["nom"].value;
+    var y = document.forms["formcard"]["prenom"].value;
+    if (x == "" && y =="") {
+        alert("Veuillez indiquer votre nom et votre prénom");
+        return false;
+      }
+    else if (x == "") {
+      alert("Veuillez indiquer votre nom")
+      return false;
+      }
+    else if (y =="") {
+      alert("Veuillez indiquer votre prénom")
+      return false;
+    }
+    else {
+      rejouer();
+    }
 }
