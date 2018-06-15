@@ -53,12 +53,12 @@ function majAffichage(noCarte){
 	switch(etatsCartes[noCarte]){
     //état 0 : carte face cachée, on affichage l'image de dos de carte
 		case 0:
-			imgCartes[noCarte].src="img/dos.png";
+			imgCartes[noCarte].src="../img/dos.png";
 			break;
       //carte retournée, on affiche l'image du motif correspondant
       //au numero de carte.
 		case 1:
-			imgCartes[noCarte].src="img/carte"+motifsCartes[noCarte]+".png";
+			imgCartes[noCarte].src="../img/carte"+motifsCartes[noCarte]+".png";
 			break;
       //les cartes reste retournées et on applique un style
 		case -1:
