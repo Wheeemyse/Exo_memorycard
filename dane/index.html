@@ -13,14 +13,12 @@
   <body>
 
     <header>
-      <h1>Memory</h1>
+      <h1><a href="index.html">Memory</a></h1>
     </header>
 
-    <div class="timer" onclick="startTimer(),initialiseJeu()">
-      <!--<span>Start !!!</span>-->
-    </div>
 
-    <main>
+
+    <main class="jeu">
       <div>
         <ul class="deck" id="cardDeck">
           <li><img class="card" src="img/dos.jpg"></li>
@@ -45,10 +43,15 @@
           <li><img class="card" src="img/dos.jpg"></li>
         </ul>
       </div>
+
+      <div class="timer" id="time">
+        <span onclick="startTimer(),initialiseJeu()">Start !!!</span>
+      </div>
+
      </main>
 
 <footer>
-  <p>Legal <br> Copyright</p>
+  <p><a href="legal.html">Legal</a> <br> Copyright</p>
 </footer>
 
     <script type="text/javascript" src="jordan/fonction.js"></script>
