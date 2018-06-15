@@ -48,12 +48,39 @@ table {
 }
 
 /*FIN DU RESET CSS*/
+@import url('https://fonts.googleapis.com/css?family=Lato|Medula+One');
 
-
+html{
+	font-size: 62.5%;
+}
 form{
-	display: flex;
 	justify-content: center;
 }
 .contener{
 	text-align: center;
 }
+body{
+	text-align: center;
+	background-color: #1e88e5;
+	font-family: 'Medula One', cursive;
+}
+input.line{
+	background-color: #1e88e5;
+	border: none;
+	border-bottom: 2px solid #ffb300;
+}
+
+input{
+	background-color: #ffb300;
+}
+/* .test input:checked{
+	background-color: #ffb300;
+}
+.test:after{
+	content: "";
+	position: absolute;
+	display: none;
+}
+.test input:checked{
+	display: block;
+} */

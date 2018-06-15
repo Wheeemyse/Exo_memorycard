@@ -7,25 +7,21 @@
   </head>
   <body>
     <div class="contener">
-      <form class="" action="index.html" method="post">
-        <div class="">
-          <br><br>
-          <label for="nom">Nom:</label><br><br><br>
-          <label for="prenom">Prénom:</label><br><br>
-          <label for="email">Email:</label><br><br>
-          <label for="number">Temps:</label>
-        </div>
-        <div class="">
+      <form name="formcard" action="result.html" method="post" onsubmit="return validationForm()">
+        <div class="test">
           <label for="sexe1">Homme:</label>
           <input type="radio" name="sexe" id="sexe1" value="" >
           <label for="sexe1">Femme:</label>
           <input type="radio" name="sexe" id="sexe2" value=""><br><br>
-          <input type="text" name="nom" id="nom" value=""><br><br>
-          <input type="text" name="prenom" id="prenom" value=""><br><br>
-          <input type="email" name="email" id="email" value=""><br><br>
-          <input type="number" name="" value="" id="temps" disabled>
+          <input type="text" class="line" name="nom" id="nom" value=""placeholder="Nom" ><br><br>
+          <input type="text" class="line" name="prenom" id="prenom" value="" placeholder="Prénom" ><br><br>
+          <input type="email" class="line" name="email" id="email" value="" placeholder="Email" required><br><br>
+          <input type="number" class="line" name="" value="" id="temps" disabled><br><br><br><br>
+          <input type="submit" name="" value="Envoyer" class="submit">
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
+    <br><br>
+    <script type="text/javascript" src="./js/jsform.js"></script>
   </body>
 </html>

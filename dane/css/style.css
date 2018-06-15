@@ -1,36 +1,76 @@
 /* ====================== Master ====================== */
 
-*{
-}
-
-h1{
+main{
+  height: calc(100vh - 180px);
+  min-height: 350px;
+    background-color: #1e88e5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 li{
   list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
-span{
-  
+ul{
+  margin: 0;
+  padding: 0;
+}
+
+h1{
+  color: white;
+  text-shadow: 2px 2px black;
+}
+
+p{
+  padding: 0;
+  margin: 0;
+  color: white;
 }
 
 /* ====================== header ====================== */
+
+header{
+  background-color: #005cb2;
+  height: 100px;
+  width: 100%;
+  text-align: center;
+}
+
 /* ====================== Body ====================== */
 
 .deck{
   align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  background-color: grey;
-  padding: 20px;
-  margin: 0;
+  display: grid;
+  grid-template-areas: "card card card card"
+                       "card card card card"
+                       "card card card card"
+                       "card card card card"
+                       "card card card card";
+  grid-gap: 3vw;
 }
 
 .card{
-  margin-top: 30px;
-  width: 200px;
-  height: 200px;
+  border-radius: 10px;
+  background-color: #ffe54c;
+  width: 60px;
+  height: 60px;
 }
 
 /* ====================== Footer ====================== */
+
+footer{
+  background-color: #6ad7ff;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+footer p{
+  text-align: left;
+  margin-right: 15px;
+}
