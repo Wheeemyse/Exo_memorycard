@@ -4,7 +4,7 @@
 }
 
 .timer {
-
+  cursor: pointer;
   margin-top: 15px;
   margin-bottom: 15px;
 }
@@ -85,11 +85,11 @@ li{
 	pointer-events: none;
 	opacity: 0.9;
 }
-<style>
-	img{
-		cursor:pointer;
-	}
-</style>
+
+img{
+  cursor: pointer;
+}
+
 /* animations */
 @keyframes flipInY {
 	from {
