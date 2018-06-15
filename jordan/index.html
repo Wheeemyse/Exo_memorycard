@@ -5,11 +5,31 @@
     <link rel="stylesheet" href="style.css">
     <title></title>
   </head>
-  <body >
-    <div class="timer" onclick="startTimer(),initialiseJeu()">
-      <span onclick="startTimer()">Start!!!</span>
+  <body ><div class="contener">
+    <form class="cacher" action="index.html" method="post" id="formu">
+      <div class="">
+        <br><br>
+        <label for="nom">Nom:</label><br><br><br>
+        <label for="prenom">Prénom:</label><br><br>
+        <label for="email">Email:</label><br><br>
+        <label for="text">Temps: <span id=totalTime> </span></label>
+      </div>
+      <div class="">
+        <label for="sexe1">Homme:</label>
+        <input type="radio" name="sexe" id="sexe1" value="" >
+        <label for="sexe1">Femme:</label>
+        <input type="radio" name="sexe" id="sexe2" value=""><br><br>
+        <input type="text" name="nom" id="nom" value=""><br><br>
+        <input type="text" name="prenom" id="prenom" value=""><br><br>
+        <input type="email" name="email" id="email" value=""><br><br>
+        <input type="number" name="" value="" id="temps" disabled>
+      </div>
     </div>
-    <ul class="deck" id="cardDeck">
+  </form>
+    <form class="cacher" action="index.html" method="post" id="formu">
+      <input type="text" name="" value="texte">
+    </form>
+    <ul class="deck cacher" id="cardDeck" >
       <li class="card">
         <img src="../img/dos.jpg" id="image"  />
       </li>
@@ -71,8 +91,8 @@
         <img src="../img/dos.jpg" id="image" />
       </li>
     </ul>
-    <div class="timer" onclick="startTimer()" onclick="initialiseJeu();">
-      <span onclick="startTimer()">Start!!!</span>
+    <div class="timer" id="time">
+      <span onclick="startTimer(),initialiseJeu()">Start!!!</span>
     </div>
     <script type="text/javascript" src="fonction.js"></script>
   </body>

@@ -5,7 +5,9 @@ var minute = 0;
 var timer = document.querySelector(".timer");//on recupere la class timer
                                             //de notre div
 var interval;
+var visible = document.getElementById("cardDeck");
 function startTimer(){
+  visible.classList.toggle('cacher');//ajouter ou supprimer la classe suivant si elle est ou non deja présente
     interval = setInterval(function(){
         timer.innerHTML = minute+": "+seconde +": " + milli+".";
         milli++;
@@ -20,7 +22,7 @@ function startTimer(){
         if(minute > 59){//idem
             minute = 0;
         }
-    },10);
+    },10);// 10 millisecondes
 }
 
 //
@@ -63,10 +65,17 @@ function majAffichage(noCarte){
 			break;
 	}
 }
-//crée une alerte et relance le jeu à zéro.
+//fonction permet de stop le chrono.
 function rejouer(){
-	alert("Bravo !");
-	location.reload();
+  var form = document.getElementById("formu");
+  var chrono = document.getElementById("time");
+  clearInterval(interval);
+  finalTime = timer.innerHTML;
+  time.classList.toggle('cacher');
+  visible.classList.toggle('cacher');//cache le jeu
+  formu.classList.toggle('cacher');//montre le formulaire
+  document.getElementById("totalTime").innerHTML = finalTime;
+//	location.reload();
 }
 // fonction qui mélange le jeu elle se lance sur la bouton start
 function initialiseJeu(){
@@ -117,7 +126,7 @@ function controleJeu(noCarte){
     majAffichage(cartesRetournees[1]);
     cartesRetournees=[];
     //si le nombre de paires = 10 on lance la fonction rejouer
-    //qui fit pop l'alerte
+    //qui fait pop l'alerte
     if(nbPairesTrouvees==10){
       rejouer();
     }
