@@ -1,89 +1,127 @@
 //  timer du memory
-var milli = 0;
+var milli = 0;//on crée une variable pour chaqueunité de mesure
 var seconde = 0;
 var minute = 0;
-var timer = document.querySelector(".timer");
+var timer = document.querySelector(".timer");//on recupere la class timer
+                                            //de notre div
 var interval;
 function startTimer(){
     interval = setInterval(function(){
         timer.innerHTML = minute+": "+seconde +": " + milli+".";
         milli++;
-        if(milli >99){
-            seconde++;
-            milli=0;
+        if(milli >99){//si les milli depasse 99
+            seconde++;//on incremente les secondes de 1
+            milli=0;//eton passe les milli a 0
         }
-        if(seconde > 59){
+        if(seconde > 59){//idem
             minute++;
             seconde = 0;
         }
-        if(minute > 59){
+        if(minute > 59){//idem
             minute = 0;
         }
     },10);
 }
-//http://sciences-du-numerique.fr/projets-javascript/code-source-du-jeu-de-memory/60
+
+//
 //memory
+//on crée un tableau avec nos 10 cartes à l'interieur
+//on les met en double.
 var motifsCartes=[1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10];
+//on crée un 2eme tableau pour les dos de cartes.
 var etatsCartes=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+//on crée un autre tableau qui va contenir les cartes retournées.
 var cartesRetournees=[];
+//variable qui va compter le nombre de paire trouver
 var nbPairesTrouvees=0;
+//variable qui va récupérer toute les images dans notre jeu de cartes.
 var imgCartes=document.getElementById("cardDeck").getElementsByTagName("img");
+//on parcourt le tableau d'objet des éléments img et on ajoute la fonction controleJeu
+//en cliquant sur la chaque carte.
 for(var i=0;i<imgCartes.length;i++){
 	imgCartes[i].noCarte=i; //Ajout de la propriété noCarte à l'objet img
 	imgCartes[i].onclick=function(){
 		controleJeu(this.noCarte);
 	}
 }
+//fonction qui change l'état des cartes
 function majAffichage(noCarte){
 	switch(etatsCartes[noCarte]){
+    //état 0 : carte face cachée, on affichage l'image de dos de carte
 		case 0:
 			imgCartes[noCarte].src="../img/dos.jpg";
 			break;
+      //carte retournée, on affiche l'image du motif correspondant
+      //au numero de carte.
 		case 1:
 			imgCartes[noCarte].src="../img/carte"+motifsCartes[noCarte]+".png";
 			break;
+      //les cartes reste retournées et on applique un style
 		case -1:
-			imgCartes[noCarte].style.border="5px solid green";
+		//	imgCartes[noCarte].style.border="5px solid green";
+    imgCartes[noCarte].classList.add('test');
 			break;
 	}
 }
+//crée une alerte et relance le jeu à zéro.
 function rejouer(){
 	alert("Bravo !");
 	location.reload();
 }
+// fonction qui mélange le jeu elle se lance sur la bouton start
 function initialiseJeu(){
 	for(var position=motifsCartes.length-1; position>=1; position--){
+    //on utilise math.random() pour generer de l'aleatoire
+    //var hasard recoit un nbr entre 0 et position +1
 		var hasard=Math.floor(Math.random()*(position+1));
+    //on stock la position de la carte dans une variable
 		var sauve=motifsCartes[position];
+    //on dit que sa position est hasard(aleatoire)
 		motifsCartes[position]=motifsCartes[hasard];
+    //sa nouvelle position devient sa position de base
 		motifsCartes[hasard]=sauve;
 	}
 }
-
+//fonction qui fait fonctionné le jeu en lui meme.
 function controleJeu(noCarte){
+  //la longueur du tableau ne depasse pas 2
+  //sa permet de ne pas avoir plus de deux cartes retournées
+  //si on a moin de deux cartes retournées
   if(cartesRetournees.length<2){
+    //si la carte est de dos
     if(etatsCartes[noCarte]==0){
+      //on passe son état à 1
 			etatsCartes[noCarte]=1;
+      //on ajoute son numéro au tableau cartesRetournees
 			cartesRetournees.push(noCarte);
+      //on fait la mise a jour de l'affichage.
 			majAffichage(noCarte);
 		}
+    //si on a deux cartes retournées.
     if(cartesRetournees.length==2){
+      //on creer une variable =0 ( == à l'état 0)
 			var nouveauEtat=0;
+      //si les deux cartes sont identiques( on le meme numéro)
 			if(motifsCartes[cartesRetournees[0]]==motifsCartes[cartesRetournees[1]]){
-				nouveauEtat=-1;
+        //on change leur état en -1
+        nouveauEtat=-1;
+        //on incremnte le nbr de paire
 				nbPairesTrouvees++;
 			}
-
+        //sinon on change leur état en 0 (on les retourne)
 			etatsCartes[cartesRetournees[0]]=nouveauEtat;
 			etatsCartes[cartesRetournees[1]]=nouveauEtat;
+      //on fait un setTimeout de 500ms pour ralentir le changement d'etat
       setTimeout(function(){
     majAffichage(cartesRetournees[0]);
     majAffichage(cartesRetournees[1]);
     cartesRetournees=[];
+    //si le nombre de paires = 10 on lance la fonction rejouer
+    //qui fit pop l'alerte
     if(nbPairesTrouvees==10){
       rejouer();
     }
-  },750);
+  },500);
 }
 }
 }
