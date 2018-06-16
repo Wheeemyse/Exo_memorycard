@@ -17,6 +17,14 @@
     </header>
 
     <main class="jeu">
+      <div class="regle" id="regle">
+        <p>Bienvenue dans le jeu du Memory. Le but est de collecter les paires correspondantes.</br>
+        il y a 10 paires au total à trouver. Cliquez sur les images pour retourner les cartes. </br>
+        Lorsqu'une paire est trouvées, les cartes restent face visible. le temps est chronométré</br>
+        et le nombre de coups également. (un coup equivaut à deux cartes retournées). </br>
+         Lorsque toutes les cartes sont face visible, c'est gagné!!!</p>
+        <p>Pour commencer le jeu, appuyez sur le bouton Start!!!</p>
+      </div>
       <div class="contener">
         <form class="cacher" id="formu" name="formcard"  method="post" onsubmit="return validationForm()">
           <div class="test">
@@ -27,7 +35,8 @@
             <input type="text" class="line" name="nom" id="nom" value=""placeholder="Nom" ><br><br>
             <input type="text" class="line" name="prenom" id="prenom" value="" placeholder="Prénom" ><br><br>
             <input type="email" class="line" name="email" id="email" value="" placeholder="Email" required><br><br>
-            <div id=totalTime></div><br><br><br><br>
+            <label>Temps: <b id=totalTime></b></label><br>
+            <label>Nombre de coups: <b id=totalCoups></b></label> <br><br><br><br>
             <input type="submit" name="" value="Envoyer" class="submit" >
           </div>
         </form>
@@ -95,9 +104,13 @@
           <img src="img/dos.png" id="image" />
         </li>
       </ul>
-
-      <div class="timer" id="time">
-        <span onclick="startTimer(),initialiseJeu()">Start!!!</span>
+      <div class="bouton">
+        <div class="timer" id="time">
+          <span onclick="startTimer(),initialiseJeu()">Start!!!</span>
+        </div>
+        <div class="comptage cacher" id="compteur">
+          <span class="coups">0 Coups.</span>
+        </div>
       </div>
 
      </main>
