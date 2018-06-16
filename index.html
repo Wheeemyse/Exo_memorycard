@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <title></title>
+  </head>
+
+  <body>
+
+    <header>
+      <h1><a href="index.html">Memory</a></h1>
+    </header>
+
+    <main class="jeu">
+      <div class="contener">
+        <form class="cacher" id="formu" name="formcard"  method="post" onsubmit="return validationForm()">
+          <div class="test">
+            <label for="sexe1">Homme:</label>
+            <input type="radio" name="sexe" id="sexe1" value="" >
+            <label for="sexe1">Femme:</label>
+            <input type="radio" name="sexe" id="sexe2" value=""><br><br>
+            <input type="text" class="line" name="nom" id="nom" value=""placeholder="Nom" ><br><br>
+            <input type="text" class="line" name="prenom" id="prenom" value="" placeholder="Prénom" ><br><br>
+            <input type="email" class="line" name="email" id="email" value="" placeholder="Email" required><br><br>
+            <div id=totalTime></div><br><br><br><br>
+            <input type="submit" name="" value="Envoyer" class="submit" >
+          </div>
+        </form>
+      </div>
+
+      <ul class="deck cacher" id="cardDeck" >
+        <li class="card">
+          <img src="img/dos.png" id="image"  />
+        </li>
+        <li class="card">
+          <img src="img/dos.png" id="image" />
+        </li>
+        <li class="card">
+          <img src="img/dos.png" id="image"  />
+        </li>
+        <li class="card">
+          <img src="img/dos.png" id="image" />
+        </li>
+        <li class="card">
+          <img src="img/dos.png" id="image" />
+        </li>
+        <li class="card">
+          <img src="img/dos.png" id="image" />
+        </li>
+        <li class="card">
+          <img src="img/dos.png" id="image" />
+        </li>
+        <li class="card">
+          <img src="img/dos.png" id="image" />
+        </li>
+        <li class="card">
+          <img src="img/dos.png" id="image" />
+        </li>
+        <li class="card">
+          <img src="img/dos.png" id="image" />
+        </li>
+        <li class="card">
+          <img src="img/dos.png" id="image" />
+        </li>
+        <li class="card">
+          <img src="img/dos.png" id="image" />
+        </li>
+        <li class="card">
+          <img src="img/dos.png" id="image" />
+        </li>
+        <li class="card">
+          <img src="img/dos.png" id="image" />
+        </li>
+        <li class="card">
+          <img src="img/dos.png" id="image" />
+        </li>
+        <li class="card">
+          <img src="img/dos.png" id="image" />
+        </li>
+        <li class="card">
+          <img src="img/dos.png" id="image" />
+        </li>
+        <li class="card">
+          <img src="img/dos.png" id="image" />
+        </li>
+        <li class="card">
+          <img src="img/dos.png" id="image" />
+        </li>
+        <li class="card">
+          <img src="img/dos.png" id="image" />
+        </li>
+      </ul>
+
+      <div class="timer" id="time">
+        <span onclick="startTimer(),initialiseJeu()">Start!!!</span>
+      </div>
+
+     </main>
+
+<footer>
+  <p><a href="legal.html">Legal</a> <br> Copyright</p>
+</footer>
+
+    <script type="text/javascript" src="js/fonction.js"></script>
+  </body>
+</html>

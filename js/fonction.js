@@ -40,8 +40,8 @@ var nbPairesTrouvees=0;
 var imgCartes=document.getElementById("cardDeck").getElementsByTagName("img");
 //on parcourt le tableau d'objet des éléments img et on ajoute la fonction controleJeu
 //en cliquant sur la chaque carte.
-var form = document.getElementById("formu");
-var chrono = document.getElementById("time");
+var form = document.getElementById("formu");//on récupère le formulaire
+var chrono = document.getElementById("time");//on récupère le chrono
 for(var i=0;i<imgCartes.length;i++){
 	imgCartes[i].noCarte=i; //Ajout de la propriété noCarte à l'objet img
 	imgCartes[i].onclick=function(){
@@ -51,7 +51,7 @@ for(var i=0;i<imgCartes.length;i++){
 //fonction qui change l'état des cartes
 function majAffichage(noCarte){
 	switch(etatsCartes[noCarte]){
-    //état 0 : carte face cachée, on affiche l'image de dos de carte
+    //état 0 : carte face cachée, on affichage l'image de dos de carte
 		case 0:
 			imgCartes[noCarte].src="img/dos.png";
 			break;
@@ -63,7 +63,7 @@ function majAffichage(noCarte){
       //les cartes reste retournées et on applique un style
 		case -1:
 		//	imgCartes[noCarte].style.border="5px solid green";
-    imgCartes[noCarte].classList.add('test');
+    imgCartes[noCarte].classList.add('styleCard');
 			break;
 	}
 }
@@ -78,7 +78,7 @@ function stop(){
   document.getElementById("totalTime").innerHTML = finalTime;
 }
 function rejouer() {
-  	location.reload();
+  	location.reload();//réinitialise le jeu.
     time.classList.toggle('cacher');//cacher le chrono
     visible.classList.toggle('cacher');//cache le jeu
     formu.classList.toggle('cacher');//montre le formulaire
@@ -114,7 +114,7 @@ function controleJeu(noCarte){
 		}
     //si on a deux cartes retournées.
     if(cartesRetournees.length==2){
-      //on creer une variable =0 ( == à l'état 0)
+      //on creer une variable =0 ( = à l'état 0)
 			var nouveauEtat=0;
       //si les deux cartes sont identiques( on le meme numéro)
 			if(motifsCartes[cartesRetournees[0]]==motifsCartes[cartesRetournees[1]]){
@@ -131,8 +131,8 @@ function controleJeu(noCarte){
     majAffichage(cartesRetournees[0]);
     majAffichage(cartesRetournees[1]);
     cartesRetournees=[];
-    //si le nombre de paires = 10 on lance la fonction rejouer
-    //qui fait pop l'alerte
+    //si le nombre de paires = 10 on lance la fonction stop
+    //qui fait apparaitre le formulaire
     if(nbPairesTrouvees==10){
       stop();
     }

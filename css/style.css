@@ -91,11 +91,10 @@ header{
   grid-gap: 3vw;
 }
 
-.card{
-  border-radius: 10px;
-  background-color: #ffe54c;
-  width: 60px;
-  height: 60px;
+img{
+  border-radius: 15px;
+  width: 200px;
+  height: 200px;
 }
 
 /* ====================== Footer ====================== */
@@ -111,4 +110,32 @@ footer{
 footer p{
   text-align: left;
   margin-right: 15px;
+}
+
+/*classe js*/
+.cacher{
+  display: none;
+}
+.styleCard{
+  /*donner un style pour les carte retournées*/
+}
+/*formulaire*/
+@import url('https://fonts.googleapis.com/css?family=Lato|Medula+One');
+
+
+form{
+	justify-content: center;
+}
+.contener{
+	text-align: center;
+}
+
+input.line{
+	background-color: #1e88e5;
+	border: none;
+	border-bottom: 2px solid #ffb300;
+}
+
+input{
+	background-color: #ffb300;
 }
