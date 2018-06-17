@@ -15,7 +15,7 @@ function startTimer(){
   regle.classList.toggle('cacher');//cache les règles
   compteur.classList.toggle('cacher');//rend visible le compteur
     interval = setInterval(function(){
-        timer.innerHTML = minute+": "+seconde +": " + milli;
+        timer.innerHTML = "Timer " + minute+":"+seconde +"." + milli;
         milli++;
         if(milli >99){//si les milli depasse 99
             seconde++;//on incremente les secondes de 1
@@ -59,7 +59,7 @@ var counter = document.querySelector(".coups");
 //fonction qui permet de compter le nbr de cliques
 function nbrCoups(){
     coups++;
-    counter.innerHTML = coups + " Coups.";
+    counter.innerHTML ="Coups : " + coups;
   }
 //on parcourt le tableau d'objet des éléments img et on ajoute la fonction controleJeu
 //en cliquant sur la chaque carte.

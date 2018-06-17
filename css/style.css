@@ -12,13 +12,9 @@ ul{
   padding: 0;
 }
 
-h1{
-  color: white;
-  text-shadow: 2px 2px black;
-}
-
 h2{
   margin: 0;
+  padding: 0;
   text-align: center;
   color: black;
 }
@@ -40,20 +36,44 @@ a{
 
 .bouton{
   display: flex;
+  align-items: center;
 }
-span{
+.buttonStart, .submit{
+  width: 150px;
+  margin-top: 10px;
+  background-color: #ffb300;
+  border-radius: 35px;
+  line-height: 85px;
+  color: #333;
+  padding: 0px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+  font-family: 'Lato', sans-serif;
+  margin: auto;
+}
+.buttonStart:hover{
+  border: 3px groove #fff;
+}
+
+.coups{
+  margin-left: 50px;
+}
+
+span{/*
   margin-top: 10px;
   background-color: #ffe54c;
   border-radius: 15px;
   color: black;
-  padding: 15px 32px;
-  text-align: center;
+  padding: 15px 32px;*/
+  text-align: center;/*
   text-decoration: none;
   text-shadow: 1px 1px white;
   display: inline-block;
   font-size: 16px;
   border: 2px ridge #ffe54c;
-  cursor: pointer;
+  cursor: pointer;*/
 }
 span:hover{
   /*mettre un style hover*/
@@ -71,12 +91,13 @@ header{
 
 /* ====================== Body ====================== */
 main{
-  background: linear-gradient(#005cb2,#6ad7ff);
-}
-/*.jeu, .mentions{
+/*  background: linear-gradient(#005cb2,#6ad7ff);*/
       background-color: #1e88e5;
-      j'ai test le dégradé je trouve ca pas mal ca fait epurer
-}*/
+}
+
+
+.jeu, .mentions{
+}
 .regle{
   text-align: center;
   margin: 0;
@@ -86,16 +107,16 @@ main{
   border: 2px solid #ffe54c;
 }
 .jeu{
-  /*  height: calc(100vh - 180px); il faut changer ça*/
-    min-height: 350px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  height: calc(100vh - 180px);
+  min-height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .mentions{
-  padding: 0px 20px 20px 20px;
+  padding: 30px 20px 20px 20px;
 }
 
 .deck{
@@ -111,8 +132,8 @@ main{
 
 img{
   border-radius: 15px;
-  width: 130px;
-  height: 130px;
+  width: 55px;
+  height: 55px;
   border: 3px groove #6ad7ff;
   cursor: pointer;
   transition: all 0.2s ease-in;
@@ -135,6 +156,7 @@ footer{
 footer p{
   text-align: left;
   margin-right: 15px;
+  margin-bottom: 0;
 }
 
 /*classe js*/
@@ -146,8 +168,6 @@ border: 3px groove #005cb2;/*j'ai mis un style regarde si sa te vas
 il s'applique qd on retourne les cartes*/
 }
 /*formulaire*/
-@import url('https://fonts.googleapis.com/css?family=Lato|Medula+One');
-
 
 form{
 	justify-content: center;
@@ -163,17 +183,21 @@ input.line{
 }
 
 input::placeholder{
-  color: black;
+  /*color: black;*/
 }
 input{
 	background-color: #ffb300;
-  font-size: 20px;
+  font-size: 23px;
 }
 label{
-  font-size: 20px;
+  font-size: 23px;
   margin-left: 15px;
-  color: black;
+  /*color: black;*/
 }
-#totalTime, #totalCoups{
-  font-size: 20px;
+::placeholder {
+    color: #fff;
+    opacity: 0.8; /* Firefox */
+}
+#totalTime, #totalCoups{/*
+  font-size: 20px;*/
 }

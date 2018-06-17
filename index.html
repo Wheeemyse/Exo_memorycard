@@ -13,17 +13,19 @@
   <body>
 
     <header>
-      <h1><a href="index.html">Memory</a></h1>
+      <h1><a href="index.html">MEMORY</a></h1>
     </header>
 
     <main class="jeu">
       <div class="regle" id="regle">
+        <p><span>Bienvenue.</span> <br> Trouvez les 10 paires correspondantes pour gagner. </p>
+        <!--
         <p>Bienvenue dans le jeu du Memory. Le but est de collecter les paires correspondantes.</br>
         il y a 10 paires au total à trouver. Cliquez sur les images pour retourner les cartes. </br>
         Lorsqu'une paire est trouvées, les cartes restent face visible. le temps est chronométré</br>
         et le nombre de coups également. (un coup equivaut à deux cartes retournées). </br>
          Lorsque toutes les cartes sont face visible, c'est gagné!!!</p>
-        <p>Pour commencer le jeu, appuyez sur le bouton Start!!!</p>
+        <p>Pour commencer le jeu, appuyez sur le bouton Start!!!</p>-->
       </div>
       <div class="contener">
         <form class="cacher" id="formu" name="formcard"  method="post" onsubmit="return validationForm()">
@@ -104,9 +106,10 @@
           <img src="img/dos.png" id="image" />
         </li>
       </ul>
+
       <div class="bouton">
         <div class="timer" id="time">
-          <span onclick="startTimer(),initialiseJeu()">Start!!!</span>
+          <span class="buttonStart" onclick="startTimer(),initialiseJeu()">Start</span>
         </div>
         <div class="comptage cacher" id="compteur">
           <span class="coups">0 Coups.</span>
