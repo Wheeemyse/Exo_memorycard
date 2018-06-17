@@ -91,8 +91,11 @@ header{
 
 /* ====================== Body ====================== */
 
-.jeu, .mentions{
+.coups, .timer{
+  font-size: 30px;
 }
+
+
 .regle{
   text-align: center;
   margin: 0 20px;
@@ -103,10 +106,13 @@ header{
 }
 main{
   background-color: #1e88e5;
+}
+.jeu{
+  background-color: #1e88e5;
   height: calc(100vh - 180px);
   min-height: 350px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
 }
@@ -124,6 +130,10 @@ main{
                        "card card card card"
                        "card card card card";
   grid-gap: 1vw;
+}
+
+.bouton{
+  margin-top: 20px;
 }
 
 img{
