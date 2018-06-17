@@ -4,9 +4,7 @@ var seconde = 0;
 var minute = 0;
 var timer = document.querySelector(".timer");//on recupere la class timer
                                             //de notre div
-  timer.style.color = "white";//pour styliser le timer
-  timer.style.fontSize = "30px";
-
+  
 var interval;//cette variable va servir à appeler la fonction.
 var visible = document.getElementById("cardDeck");//on recupere l'id
 var regle = document.getElementById("regle");//on recupere l'id
