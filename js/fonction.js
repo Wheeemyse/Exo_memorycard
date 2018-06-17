@@ -4,12 +4,18 @@ var seconde = 0;
 var minute = 0;
 var timer = document.querySelector(".timer");//on recupere la class timer
                                             //de notre div
-var interval;
-var visible = document.getElementById("cardDeck");
+  timer.style.color = "white";//pour styliser le timer
+  timer.style.fontSize = "30px";
+
+var interval;//cette variable va servir à appeler la fonction.
+var visible = document.getElementById("cardDeck");//on recupere l'id
+var regle = document.getElementById("regle");//on recupere l'id
 function startTimer(){
   visible.classList.toggle('cacher');//ajouter ou supprimer la classe suivant si elle est ou non deja présente
+  regle.classList.toggle('cacher');//cache les règles
+  compteur.classList.toggle('cacher');//rend visible le compteur
     interval = setInterval(function(){
-        timer.innerHTML = minute+": "+seconde +": " + milli+".";
+        timer.innerHTML = minute+": "+seconde +": " + milli;
         milli++;
         if(milli >99){//si les milli depasse 99
             seconde++;//on incremente les secondes de 1
@@ -25,23 +31,40 @@ function startTimer(){
     },10);// 10 millisecondes
 }
 
-//
+
 //memory
+
 //on crée un tableau avec nos 10 cartes à l'interieur
 //on les met en double.
 var motifsCartes=[1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10];
+
 //on crée un 2eme tableau pour les dos de cartes.
 var etatsCartes=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+
 //on crée un autre tableau qui va contenir les cartes retournées.
 var cartesRetournees=[];
+
 //variable qui va compter le nombre de paire trouver
 var nbPairesTrouvees=0;
+
 //variable qui va récupérer toute les images dans notre jeu de cartes.
 var imgCartes=document.getElementById("cardDeck").getElementsByTagName("img");
+
+//variable pour le nombre de Cliques
+var coups = 0;
+
+//on recupere la classe pour les clique
+var counter = document.querySelector(".coups");
+
+//fonction qui permet de compter le nbr de cliques
+function nbrCoups(){
+    coups++;
+    counter.innerHTML = coups + " Coups.";
+  }
 //on parcourt le tableau d'objet des éléments img et on ajoute la fonction controleJeu
 //en cliquant sur la chaque carte.
-var form = document.getElementById("formu");
-var chrono = document.getElementById("time");
+var form = document.getElementById("formu");//on récupère le formulaire
+var chrono = document.getElementById("time");//on récupère le chrono
 for(var i=0;i<imgCartes.length;i++){
 	imgCartes[i].noCarte=i; //Ajout de la propriété noCarte à l'objet img
 	imgCartes[i].onclick=function(){
@@ -51,7 +74,7 @@ for(var i=0;i<imgCartes.length;i++){
 //fonction qui change l'état des cartes
 function majAffichage(noCarte){
 	switch(etatsCartes[noCarte]){
-    //état 0 : carte face cachée, on affiche l'image de dos de carte
+    //état 0 : carte face cachée, on affichage l'image de dos de carte
 		case 0:
 			imgCartes[noCarte].src="img/dos.png";
 			break;
@@ -63,7 +86,7 @@ function majAffichage(noCarte){
       //les cartes reste retournées et on applique un style
 		case -1:
 		//	imgCartes[noCarte].style.border="5px solid green";
-    imgCartes[noCarte].classList.add('test');
+    imgCartes[noCarte].classList.add('styleCard');
 			break;
 	}
 }
@@ -71,17 +94,21 @@ function majAffichage(noCarte){
 function stop(){
 //le clearInterval
   clearInterval(interval);
-  finalTime = timer.innerHTML;
+  var finalTime = timer.innerHTML;//variable qui recupere le temps de jeu
+  var compteurCoups = counter.innerHTML;//var qui recupere le nbr de coups
   time.classList.toggle('cacher');//cacher le chrono
   visible.classList.toggle('cacher');//cache le jeu
   formu.classList.toggle('cacher');//montre le formulaire
-  document.getElementById("totalTime").innerHTML = finalTime;
+  compteur.classList.toggle('cacher');//on cache le compteur
+  document.getElementById("totalTime").innerHTML = finalTime;//affiche le temps de jeu dans le formulaire
+  document.getElementById("totalCoups").innerHTML = compteurCoups;//affiche le nbr de coup dans le formulaire
 }
 function rejouer() {
-  	location.reload();
+  	location.reload();//réinitialise le jeu.
     time.classList.toggle('cacher');//cacher le chrono
     visible.classList.toggle('cacher');//cache le jeu
-    formu.classList.toggle('cacher');//montre le formulaire
+    formu.classList.toggle('cacher');//cache le formulaire
+
 }
 // fonction qui mélange le jeu elle se lance sur la bouton start
 function initialiseJeu(){
@@ -114,7 +141,7 @@ function controleJeu(noCarte){
 		}
     //si on a deux cartes retournées.
     if(cartesRetournees.length==2){
-      //on creer une variable =0 ( == à l'état 0)
+      //on creer une variable =0 ( = à l'état 0)
 			var nouveauEtat=0;
       //si les deux cartes sont identiques( on le meme numéro)
 			if(motifsCartes[cartesRetournees[0]]==motifsCartes[cartesRetournees[1]]){
@@ -131,15 +158,19 @@ function controleJeu(noCarte){
     majAffichage(cartesRetournees[0]);
     majAffichage(cartesRetournees[1]);
     cartesRetournees=[];
-    //si le nombre de paires = 10 on lance la fonction rejouer
-    //qui fait pop l'alerte
+    nbrCoups()//on appel la fonction qui compte le nbr de coups
+                // 1 clique = 2 images retournées.
+
     if(nbPairesTrouvees==10){
-      stop();
+      stop();//si le nombre de paires = 10 on lance la fonction stop
+            //qui fait apparaitre le formulaire
     }
   },500);
 }
 }
 }
+
+
 //formulaire
 
 function validationForm() {
