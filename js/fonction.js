@@ -4,7 +4,7 @@ var seconde = 0;
 var minute = 0;
 var timer = document.querySelector(".timer");//on recupere la class timer
                                             //de notre div
-  
+
 var interval;//cette variable va servir à appeler la fonction.
 var visible = document.getElementById("cardDeck");//on recupere l'id
 var regle = document.getElementById("regle");//on recupere l'id
@@ -48,80 +48,15 @@ var nbPairesTrouvees=0;
 //variable qui va récupérer toute les images dans notre jeu de cartes.
 var imgCartes=document.getElementById("cardDeck").getElementsByTagName("img");
 
-//variable pour le nombre de Cliques
+//variable pour le nombre de Coups
 var coups = 0;
 
-//on recupere la classe pour les clique
+//on recupere la classe pour les coups
 var counter = document.querySelector(".coups");
 
-//fonction qui permet de compter le nbr de cliques
-function nbrCoups(){
-    coups++;
-    counter.innerHTML ="Coups : " + coups;
-  }
-//on parcourt le tableau d'objet des éléments img et on ajoute la fonction controleJeu
-//en cliquant sur la chaque carte.
 var form = document.getElementById("formu");//on récupère le formulaire
 var chrono = document.getElementById("time");//on récupère le chrono
-for(var i=0;i<imgCartes.length;i++){
-	imgCartes[i].noCarte=i; //Ajout de la propriété noCarte à l'objet img
-	imgCartes[i].onclick=function(){
-		controleJeu(this.noCarte);
-	}
-}
-//fonction qui change l'état des cartes
-function majAffichage(noCarte){
-	switch(etatsCartes[noCarte]){
-    //état 0 : carte face cachée, on affichage l'image de dos de carte
-		case 0:
-			imgCartes[noCarte].src="img/dos.png";
-			break;
-      //carte retournée, on affiche l'image du motif correspondant
-      //au numero de carte.
-		case 1:
-			imgCartes[noCarte].src="img/carte"+motifsCartes[noCarte]+".png";
-			break;
-      //les cartes reste retournées et on applique un style
-		case -1:
-		//	imgCartes[noCarte].style.border="5px solid green";
-    imgCartes[noCarte].classList.add('styleCard');
-			break;
-	}
-}
-//fonction permet de stop le chrono.
-function stop(){
-//le clearInterval
-  clearInterval(interval);
-  var finalTime = timer.innerHTML;//variable qui recupere le temps de jeu
-  var compteurCoups = counter.innerHTML;//var qui recupere le nbr de coups
-  time.classList.toggle('cacher');//cacher le chrono
-  visible.classList.toggle('cacher');//cache le jeu
-  formu.classList.toggle('cacher');//montre le formulaire
-  compteur.classList.toggle('cacher');//on cache le compteur
-  document.getElementById("totalTime").innerHTML = finalTime;//affiche le temps de jeu dans le formulaire
-  document.getElementById("totalCoups").innerHTML = compteurCoups;//affiche le nbr de coup dans le formulaire
-}
-function rejouer() {
-  	location.reload();//réinitialise le jeu.
-    time.classList.toggle('cacher');//cacher le chrono
-    visible.classList.toggle('cacher');//cache le jeu
-    formu.classList.toggle('cacher');//cache le formulaire
 
-}
-// fonction qui mélange le jeu elle se lance sur la bouton start
-function initialiseJeu(){
-	for(var position=motifsCartes.length-1; position>=1; position--){
-    //on utilise math.random() pour generer de l'aleatoire
-    //var hasard recoit un nbr entre 0 et position +1
-		var hasard=Math.floor(Math.random()*(position+1));
-    //on stock la position de la carte dans une variable
-		var sauve=motifsCartes[position];
-    //on dit que sa position est hasard(aleatoire)
-		motifsCartes[position]=motifsCartes[hasard];
-    //sa nouvelle position devient sa position de base
-		motifsCartes[hasard]=sauve;
-	}
-}
 //fonction qui fait fonctionné le jeu en lui meme.
 function controleJeu(noCarte){
   //la longueur du tableau ne depasse pas 2
@@ -168,6 +103,88 @@ function controleJeu(noCarte){
 }
 }
 
+//on parcourt le tableau d'objet des éléments img et on ajoute la fonction controleJeu
+//en cliquant sur la chaque carte.
+for(var i=0;i<imgCartes.length;i++){
+	imgCartes[i].noCarte=i; //Ajout de la propriété noCarte à l'objet img
+	imgCartes[i].onclick=function(){
+		controleJeu(this.noCarte);
+	}
+}
+
+// fonction qui mélange le jeu elle se lance sur la bouton start
+function initialiseJeu(){
+	for(var position=motifsCartes.length-1; position>=1; position--){
+    //on utilise math.random() pour generer de l'aleatoire
+    //var hasard recoit un nbr entre 0 et position +1
+		var hasard=Math.floor(Math.random()*(position+1));
+    //on stock la position de la carte dans une variable
+		var sauve=motifsCartes[position];
+    //on dit que sa position est hasard(aleatoire)
+		motifsCartes[position]=motifsCartes[hasard];
+    //sa nouvelle position devient sa position de base
+		motifsCartes[hasard]=sauve;
+	}
+}
+
+//fonction qui change l'état des cartes
+function majAffichage(noCarte){
+	switch(etatsCartes[noCarte]){
+    //état 0 : carte face cachée, on affichage l'image de dos de carte
+		case 0:
+			imgCartes[noCarte].src="img/dos.png";
+			break;
+      //carte retournée, on affiche l'image du motif correspondant
+      //au numero de carte.
+		case 1:
+			imgCartes[noCarte].src="img/carte"+motifsCartes[noCarte]+".png";
+			break;
+      //les cartes reste retournées et on applique un style
+		case -1:
+		//	imgCartes[noCarte].style.border="5px solid green";
+    imgCartes[noCarte].classList.add('styleCard');
+			break;
+	}
+}
+
+//fonction permet de stop le chrono.
+function stop(){
+//le clearInterval
+  clearInterval(interval);
+  var finalTime = timer.innerHTML;//variable qui recupere le temps de jeu
+  var compteurCoups = counter.innerHTML;//var qui recupere le nbr de coups
+  time.classList.toggle('cacher');//cacher le chrono
+  visible.classList.toggle('cacher');//cache le jeu
+  formu.classList.toggle('cacher');//montre le formulaire
+  compteur.classList.toggle('cacher');//on cache le compteur
+  document.getElementById("totalTime").innerHTML = finalTime;//affiche le temps de jeu dans le formulaire
+  document.getElementById("totalCoups").innerHTML = compteurCoups;//affiche le nbr de coup dans le formulaire
+  if (coups<11) {// permet de faire apparaitre une phrase suivant le nbr de coups
+    document.getElementById("coupFinal").innerHTML = "Réincarnation de Chuck Norris";
+  }else if (coups>=11 && coups<16) {
+    document.getElementById("coupFinal").innerHTML = "Véteran";
+  }else if (coups>=16 && coups<20) {
+    document.getElementById("coupFinal").innerHTML = "Recrue";
+  }else if (coups>=20 && coups<25) {
+    document.getElementById("coupFinal").innerHTML = "Amateur";
+  }else {
+    document.getElementById("coupFinal").innerHTML = "Tu veux revoir les règles?";
+  }
+}
+
+//fonction qui permet de compter le nbr de cliques
+function nbrCoups(){
+    coups++;
+    counter.innerHTML ="Coups : " + coups;
+  }
+
+  function rejouer() {
+    	location.reload();//réinitialise le jeu.
+      time.classList.toggle('cacher');//cacher le chrono
+      visible.classList.toggle('cacher');//cache le jeu
+      formu.classList.toggle('cacher');//cache le formulaire
+
+  }
 
 //formulaire
 
