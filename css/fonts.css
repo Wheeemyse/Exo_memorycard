@@ -41,12 +41,11 @@ h4 {font-size: 1.618rem;}
 small, .font_small {font-size: 0.618rem;}
 
 .coups, .timer{
-  font-size: 23px;
+  font-size: 30px;
 }
 
 .bouton{
   font-family: 'Medula One', cursive;
-  font-size: 45px;
 }
 
 /**
@@ -64,6 +63,25 @@ small, .font_small {font-size: 0.618rem;}
     height: 150px;
   }
 
+/*  main{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 0px;
+    grid-template-areas: "timer-area jeu-area coups-area";
+    justify-content: center;
+  }*/
+
+  img{
+    width: 100px;
+    height: 100px;
+  }
+  main{
+    height: calc(100vh - 230px);
+  }
+
+/*  .bouton{
+    margin-top: 60px;
+  }*/
 }
 @media screen and (max-width: 1024px) {
   h1{
@@ -71,6 +89,13 @@ small, .font_small {font-size: 0.618rem;}
   }
   header{
     height: calc(100px + 50 * (100vw - 768px)/256);
+  }
+  img{
+    width: 100px;
+    height: 100px;
+  }
+  main{
+    height: calc(100vh - (180px + 50 * (100vw - 768px)/256));
   }
 }
 @media screen and (max-width: 768px) {
@@ -80,17 +105,34 @@ small, .font_small {font-size: 0.618rem;}
   header{
     height: 100px;
   }
+  img{
+    width: 100px;
+    height: 100px;
+  }
+  main{
+    height: calc(100vh - 180px);
+  }
 }
 
 @media screen and (min-width: 767px) {
   .deck{
     align-items: center;
-    display: grid;
     grid-template-areas: "card card card card card"
                          "card card card card card"
                          "card card card card card"
                          "card card card card card";
-    grid-gap: 1vw;
+    grid-gap: 1.5vw;
   }
 
+  .coups, .timer{
+    font-size: 50px;
+  }
+}
+
+
+@media screen and (max-width: 425px) {
+  img{
+    width: calc(55px + 20 * (100vw - 320px)/(105));
+    height: calc(55px + 20 * (100vw - 320px)/(105));
+  }
 }

@@ -33,17 +33,28 @@ a{
   color: white;
   text-decoration: none;
 }
-
+.timer{
+  grid-area: timer-area;
+  justify-self: center;
+}
+.deck{
+  grid-area: jeu-area;
+}
+.comptage{
+  grid-area: coups-area;
+  justify-self: center;
+}
 .bouton{
   display: flex;
   align-items: center;
 }
 .buttonStart, .submit{
   width: 150px;
+  height: 75px;
+  line-height: 75px;
   margin-top: 10px;
   background-color: #ffb300;
   border-radius: 35px;
-  line-height: 85px;
   color: #333;
   padding: 0px 32px;
   text-align: center;
@@ -61,19 +72,8 @@ a{
   margin-left: 50px;
 }
 
-span{/*
-  margin-top: 10px;
-  background-color: #ffe54c;
-  border-radius: 15px;
-  color: black;
-  padding: 15px 32px;*/
-  text-align: center;/*
-  text-decoration: none;
-  text-shadow: 1px 1px white;
-  display: inline-block;
-  font-size: 16px;
-  border: 2px ridge #ffe54c;
-  cursor: pointer;*/
+span{
+  text-align: center;
 }
 span:hover{
   /*mettre un style hover*/
@@ -90,27 +90,23 @@ header{
 }
 
 /* ====================== Body ====================== */
-main{
-/*  background: linear-gradient(#005cb2,#6ad7ff);*/
-      background-color: #1e88e5;
-}
-
 
 .jeu, .mentions{
 }
 .regle{
   text-align: center;
-  margin: 0;
+  margin: 0 20px;
   padding:5px 5px 5px 5px;
   font-size: 24px;
   border-radius: 10px;
   border: 2px solid #ffe54c;
 }
-.jeu{
+main{
+  background-color: #1e88e5;
   height: calc(100vh - 180px);
   min-height: 350px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   flex-direction: column;
 }
@@ -182,9 +178,6 @@ input.line{
 	border-bottom: 2px solid #ffb300;
 }
 
-input::placeholder{
-  /*color: black;*/
-}
 input{
 	background-color: #ffb300;
   font-size: 23px;
