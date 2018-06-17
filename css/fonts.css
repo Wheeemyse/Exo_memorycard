@@ -1,35 +1,36 @@
 @import url('https://fonts.googleapis.com/css?family=Lato|Medula+One');
 
 html {
+min-width: 320px;
+
   font-size: 62.5%;
-  min-width: 320px;
 }
 
-body {
-  background-color: white;
+body {color: #fff;
+  background-color: white;
   font-family: 'Lato', sans-serif;
-  font-weight: 400;
+  font-weight: 400;
   line-height: 1.45;
-  color: #fff;
-}
+  }
 
 p {
-  margin-bottom: 1.3rem;
+  margin-bottom: 1.3rem;
   font-size: 1.5rem;
-}
+  }
 
 h1, h2, h3, h4 {
   margin: 1.414rem 0 0.5rem;
-  font-weight: inherit;
+font-weight: inherit;
   line-height: 1.2;
-}
+  }
 
 h1 {
-  font-family: 'Medula One', cursive;
-  margin-top: 0;
-  font-size: 6.854rem;
+  margin-top: 0;
   color: white;
-  text-shadow: 0px 3px 6px rgba(0, 0, 0, 1)
+  text-shadow: 0px 3px 6px rgba(0, 0, 0, 1);
+
+  font-family: 'Medula One', cursive;
+  font-size: 6.854rem;
 }
 
 h2 {font-size: 4.236rem;}
@@ -40,9 +41,6 @@ h4 {font-size: 1.618rem;}
 
 small, .font_small {font-size: 0.618rem;}
 
-.coups, .timer{
-  font-size: 30px;
-}
 
 .bouton{
   font-family: 'Medula One', cursive;
@@ -55,6 +53,8 @@ small, .font_small {font-size: 0.618rem;}
 
 
 
+
+
 @media screen and (min-width: 1024px) {
   h1{
     font-size: 138px;
@@ -62,27 +62,23 @@ small, .font_small {font-size: 0.618rem;}
   header{
     height: 150px;
   }
+  .coups, .timer{
+    font-size: 50px;
+  }
+  .coups{
+    margin-left: 250px;
+  }
 
-/*  main{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 0px;
-    grid-template-areas: "timer-area jeu-area coups-area";
-    justify-content: center;
-  }*/
 
   img{
     width: 100px;
     height: 100px;
   }
-  main{
+  .jeu{
     height: calc(100vh - 230px);
   }
-
-/*  .bouton{
-    margin-top: 60px;
-  }*/
 }
+
 @media screen and (max-width: 1024px) {
   h1{
     font-size: calc(88px + 50 * (100vw - 768px)/256);
@@ -94,7 +90,10 @@ small, .font_small {font-size: 0.618rem;}
     width: 100px;
     height: 100px;
   }
-  main{
+  .coups, .timer{
+    font-size: 50px;
+  }
+  .jeu{
     height: calc(100vh - (180px + 50 * (100vw - 768px)/256));
   }
 }
@@ -109,12 +108,12 @@ small, .font_small {font-size: 0.618rem;}
     width: 100px;
     height: 100px;
   }
-  main{
+  .jeu{
     height: calc(100vh - 180px);
   }
 }
 
-@media screen and (min-width: 767px) {
+@media screen and (min-width: 768px) {
   .deck{
     align-items: center;
     grid-template-areas: "card card card card card"
@@ -125,7 +124,10 @@ small, .font_small {font-size: 0.618rem;}
   }
 
   .coups, .timer{
-    font-size: 50px;
+    font-size: calc(30px + 20 * (100vw - 425)/(342));
+  }
+  .bouton{
+    margin-top: 50px;
   }
 }
 
@@ -134,5 +136,8 @@ small, .font_small {font-size: 0.618rem;}
   img{
     width: calc(55px + 20 * (100vw - 320px)/(105));
     height: calc(55px + 20 * (100vw - 320px)/(105));
+  }
+  .coups, .timer{
+    font-size: 30px;
   }
 }
