@@ -1,5 +1,5 @@
 //  timer du memory
-var milli = 0;//on crée une variable pour chaque unité de mesure
+var centi = 0;//on crée une variable pour chaque unité de mesure
 var seconde = 0;
 var minute = 0;
 var timer = document.querySelector(".timer");//on recupere la class timer
@@ -15,11 +15,11 @@ function startTimer(){
   regle.classList.toggle('cacher');//cache les règles
   compteur.classList.toggle('cacher');//rend visible le compteur
     interval = setInterval(function(){
-        timer.innerHTML = "Timer " + minute+":"+seconde +"." + milli;
-        milli++;
-        if(milli >99){//si les milli depasse 99
+        timer.innerHTML = "Timer " + minute+":"+seconde +"." + centi;
+        centi++;
+        if(centi >99){//si les centi depasse 99
             seconde++;//on incremente les secondes de 1
-            milli=0;//eton passe les milli a 0
+            centi=0;//eton passe les centi a 0
         }
         if(seconde > 59){//idem
             minute++;
