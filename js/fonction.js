@@ -147,7 +147,7 @@ function majAffichage(noCarte){
 	}
 }
 
-//fonction permet de stop le chrono.
+//fonction permet de stop le chrono le jeu et voir le formulaire
 function stop(){
 //le clearInterval
   clearInterval(interval);
