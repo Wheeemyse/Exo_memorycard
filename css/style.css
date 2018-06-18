@@ -75,9 +75,7 @@ a{
 span{
   text-align: center;
 }
-span:hover{
-  /*mettre un style hover*/
-}
+
 /* ====================== header ====================== */
 
 header{
@@ -170,8 +168,7 @@ footer p{
   display: none;
 }
 .styleCard{
-border: 3px groove #005cb2;/*j'ai mis un style regarde si sa te vas
-il s'applique qd on retourne les cartes*/
+border: 3px groove #005cb2;
 }
 /*formulaire*/
 
@@ -195,12 +192,9 @@ input{
 label{
   font-size: 23px;
   margin-left: 15px;
-  /*color: black;*/
+
 }
 ::placeholder {
     color: #fff;
     opacity: 0.8; /* Firefox */
-}
-#totalTime, #totalCoups{/*
-  font-size: 20px;*/
 }
