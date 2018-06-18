@@ -64,7 +64,7 @@ a{
   font-family: 'Lato', sans-serif;
   margin: auto;
 }
-.buttonStart:hover{
+.buttonStart:hover, .submit:hover{
   border: 3px groove #fff;
 }
 
