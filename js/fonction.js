@@ -13,7 +13,7 @@ function startTimer(){
   regle.classList.toggle('cacher');//cache les règles
   compteur.classList.toggle('cacher');//rend visible le compteur
     interval = setInterval(function(){
-        timer.innerHTML = "Timer " + minute+":"+seconde +"." + centi;
+        timer.innerHTML = "Temps: " + minute+":"+seconde +":" + centi;
         centi++;
         if(centi >99){//si les centi depasse 99
             seconde++;//on incremente les secondes de 1
