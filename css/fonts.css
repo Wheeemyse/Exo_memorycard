@@ -48,7 +48,7 @@ small, .font_small {font-size: 0.618rem;}
 
 /**
   * fluid typo
-  * font-size: calc(minfsize + (maxfsize - minfsize) * (100vw - minss)/(maxss-minss));
+  * font-size: calc(minfsize + (maxfsize - minfsize) * (100vw - minscreensize)/(maxscreensize-minscreensize));
   */
 
 
@@ -71,8 +71,8 @@ small, .font_small {font-size: 0.618rem;}
 
 
   img{
-    width: 100px;
-    height: 100px;
+    width: 130px;
+    height: 130px;
   }
   .jeu{
     height: calc(100vh - 230px);
@@ -84,6 +84,7 @@ small, .font_small {font-size: 0.618rem;}
     font-size: calc(88px + 50 * (100vw - 768px)/256);
   }
   header{
+    /*changement taille header pour adapter au titre*/
     height: calc(100px + 50 * (100vw - 768px)/256);
   }
   img{
@@ -94,6 +95,7 @@ small, .font_small {font-size: 0.618rem;}
     font-size: 50px;
   }
   .jeu{
+    /*compensser la hauteur du main*/
     height: calc(100vh - (180px + 50 * (100vw - 768px)/256));
   }
 }
@@ -112,6 +114,8 @@ small, .font_small {font-size: 0.618rem;}
     height: calc(100vh - 180px);
   }
 }
+
+/* changement orientation du jeu au dessus de 768px de large  */
 
 @media screen and (min-width: 768px) {
   .deck{
@@ -134,6 +138,7 @@ small, .font_small {font-size: 0.618rem;}
 
 @media screen and (max-width: 425px) {
   img{
+    /*changement tailles img*/
     width: calc(55px + 20 * (100vw - 320px)/(105));
     height: calc(55px + 20 * (100vw - 320px)/(105));
   }
